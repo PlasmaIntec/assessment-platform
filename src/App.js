@@ -6,10 +6,19 @@ import {
   Link
 } from "react-router-dom";
 import ExampleTest from "./components/ExampleTest"
+import Login from "./components/Login"
+import useToken from './useToken';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const { token, setToken } = useToken();
+
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
+
   return (
     <Router>
       <img src={logo} className="App-logo" alt="logo" />
