@@ -3,6 +3,8 @@ import { useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
+import Button from 'react-bootstrap/Button'
+import { useHistory } from "react-router-dom";
 
 export default function ExampleTest() {
 
@@ -12,6 +14,12 @@ export default function ExampleTest() {
 		start.push(response)
 		var end = responseList.slice(idx+1)
 		setResponseList(start.concat(end))
+	}
+
+	const history = useHistory()
+	const routeChange = () => { 
+		let path = `results`
+		history.push(path, { testResponse: responseList })
 	}
 
 	return (
@@ -32,6 +40,7 @@ export default function ExampleTest() {
 					</Card.Body>
 				</Card>
 			))}
+			<Button variant="success" onClick={routeChange}>Submit</Button>
 		</div>
 	)
 }

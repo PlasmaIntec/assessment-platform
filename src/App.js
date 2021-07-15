@@ -8,6 +8,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import ExampleTest from "./components/ExampleTest"
 import Login from "./components/Login"
+import Results from "./components/Results"
 import useToken from './useToken';
 import './App.css';
 
@@ -41,6 +42,9 @@ function App() {
         </Route>
         <Route path="/users">
           <Users />
+        </Route>
+        <Route path="/results">
+          <Results />
         </Route>
         <Route path="/">
           <ExampleTest />
